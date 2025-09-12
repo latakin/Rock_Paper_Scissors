@@ -8,7 +8,7 @@
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     display: inline-block;
     border: 1px solid white;
     background-color: #1f3c4d;
@@ -33,6 +33,7 @@ h1 {
     padding: 5px 10px;
     margin: 0 auto;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .gameselection button {
@@ -43,6 +44,13 @@ h1 {
     margin: 0 auto;
     border-radius: 5px;
     margin-right: 1rem;
+}
+
+.gameactivity {
+    display: none;
+}
+.gameactivitydisplay {
+    display: block;
 }
 
 .gameselection .rock {
@@ -57,4 +65,8 @@ h1 {
 .gameselection .scissors {
     background-color: green;
     margin-right: 0;
+}
+
+.score {
+    display: flex;
 }

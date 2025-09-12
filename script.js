@@ -1,3 +1,15 @@
+//Displaying the game buttons
+const showGame = document.querySelector("#gamebutton");
+const gamePlay = document.querySelector(".gameactivity");
+
+showGame.addEventListener('click', () => {
+    gamePlay.getAttribute("class");
+    gamePlay.removeAttribute("class");
+    gamePlay.setAttribute("class", "gameactivitydisplay");
+    showGame.textContent = "LETS GO!!";
+})
+
+
 let humanScore = 0;
 let computerScore = 0;
 
