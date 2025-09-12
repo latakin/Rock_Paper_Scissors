@@ -1,0 +1,60 @@
+.gameinterface {
+    font-size: 20px;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+h1 {
+    font-size: 2.5rem;
+    display: inline-block;
+    border: 1px solid white;
+    background-color: #1f3c4d;
+     color: white;
+    border: 1px solid white;
+    font-weight: 900;
+    padding: 5px 10px;
+    border-radius: 7px;
+}
+
+.gameinterface img {
+    display: block;
+    margin: 0 auto;
+}
+
+#gamebutton {
+    display: block;
+    background-color: blue;
+    color: white;
+    border: 1px solid white;
+    font-weight: 700;
+    padding: 5px 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.gameselection button {
+    color: white;
+    border: 1px solid white;
+    font-weight: 700;
+    padding: 5px 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.gameselection .rock {
+    background-color: brown;
+
+}
+
+.gameselection .paper {
+    background-color: teal;
+}
+
+.gameselection .scissors {
+    background-color: green;
+    margin-right: 0;
+}
