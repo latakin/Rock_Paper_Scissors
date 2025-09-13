@@ -14,6 +14,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 const roundUpdate = document.createElement("p");
+roundUpdate.style.color = 'white';
 gamePlay.insertBefore(roundUpdate, scoreDiv);
 
 const gameOverMessage = document.createElement("p");

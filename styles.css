@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    background: linear-gradient(to bottom, #333333, #000000);
 }
 ol, ul {
 	list-style: none;
@@ -53,6 +54,7 @@ table {
     height: 100vh;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
+    
 
 }
 
@@ -122,6 +124,7 @@ h1 {
     gap: 1.5rem;
     font-weight: 700;
     justify-content: center;
+    color: white;
 }
 
 em {
