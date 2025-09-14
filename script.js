@@ -7,6 +7,7 @@ const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
 const scoreDiv = document.querySelector(".score");
+const optionButton = document.querySelector(".gameselection");
 let computerSelection;
 let humanSelection;
 let message;
@@ -14,7 +15,6 @@ let humanScore = 0;
 let computerScore = 0;
 
 const roundUpdate = document.createElement("p");
-roundUpdate.style.color = 'white';
 gamePlay.insertBefore(roundUpdate, scoreDiv);
 
 const gameOverMessage = document.createElement("p");
@@ -32,80 +32,21 @@ function restartGame() {
 }
 
 //Displaying the game button div
-showGame.addEventListener("click", () => {
+function playGameButton() {
+    showGame.addEventListener("click", () => {
   gamePlay.getAttribute("class");
   gamePlay.removeAttribute("class");
   gamePlay.setAttribute("class", "gameactivitydisplay");
   showGame.textContent = "LETS GO!!";
 });
-
-rockButton.addEventListener("click", () => {
-  computerSelection = getComputerChoice();
-  let humanSelection = "rock";
-
-  if ((humanScore || computerScore) < 5) {
-    playRound(humanSelection, computerSelection);
-  } else if (humanScore || computerScore === 5) {
-    if (humanScore === 5) {
-      message = "Congratulations You WON";
-      declareWinner(message);
-      restartGame();
-    } else if (computerScore === 5) {
-      message = "Sorry You Lost ";
-      declareWinner(message);
-      restartGame();
-    }
-  }
-
-  console.log(humanScore);
-});
-
-//updating scores
-playerScoreUpdate.textContent = `Your Point = ${humanScore}`;
-computerScoreUpdate.textContent = `Computer Point = ${computerScore}`;
-
-function declareWinner(message) {
-  gameOverMessage.textContent = `${message}`;
-  body.appendChild(gameOverMessage);
 }
 
-paperButton.addEventListener("click", () => {
-  computerSelection = getComputerChoice();
-  let humanSelection = "paper";
-  if ((humanScore || computerScore) < 5) {
-    playRound(humanSelection, computerSelection);
-  } else if (humanScore || computerScore === 5) {
-    if (humanScore === 5) {
-      message = "Congratulations You WON";
-      declareWinner(message);
-      restartGame();
-    } else if (computerScore === 5) {
-      message = "Sorry You Lost ";
-      declareWinner(message);
-      restartGame();
-      console.log(computerScore);
-    }
-  }
-});
-
-scissorsButton.addEventListener("click", () => {
-  computerSelection = getComputerChoice();
-
-  let humanSelection = "scissors";
-  if ((humanScore || computerScore) < 5) {
-    playRound(humanSelection, computerSelection);
-  } else if (humanScore || computerScore === 5) {
-    if (humanScore === 5) {
-      message = "Congratulations You WON";
-      declareWinner(message);
-      restartGame();
-    } else if (computerScore === 5) {
-      message = "Sorry You Lost ";
-      declareWinner(message);
-      restartGame();
-    }
-  }
-});
+function getComputerChoice() {
+  let choices = ["rock", "paper", "scissors"];
+  let indexOfChoice = Math.floor(Math.random() * choices.length);
+  let computerChoice = choices[indexOfChoice];
+  return computerChoice;
+}
 
 function playRound(humanSelection, computerSelection) {
   if (humanSelection === computerSelection) {
@@ -131,9 +72,86 @@ function playRound(humanSelection, computerSelection) {
   }
 }
 
-function getComputerChoice() {
-  let choices = ["rock", "paper", "scissors"];
-  let indexOfChoice = Math.floor(Math.random() * choices.length);
-  let computerChoice = choices[indexOfChoice];
-  return computerChoice;
+
+
+rockButton.addEventListener("click", () => {
+  computerSelection = getComputerChoice();
+  let humanSelection = "rock";
+  
+  if (humanScore < 5 && computerScore < 5) {
+        playRound(humanSelection, computerSelection);
+    
+  } else {
+    optionButton.style.display = 'none';
+    if (humanScore === 5) {
+      message = "Congratulations You WON";
+      declareWinner(message);
+      restartGame();
+    } else {
+      message = "Sorry You Lost ";
+      declareWinner(message);
+      restartGame();
+    }
+    }
+  });
+
+paperButton.addEventListener("click", () => {
+  computerSelection = getComputerChoice();
+  let humanSelection = "paper";
+  
+  if (humanScore < 5 && computerScore < 5) {
+        playRound(humanSelection, computerSelection);
+    
+  } else {
+    optionButton.style.display = 'none';
+    if (humanScore === 5) {
+      message = "Congratulations You WON";
+      declareWinner(message);
+      restartGame();
+    } else {
+      message = "Sorry You Lost ";
+      declareWinner(message);
+      restartGame();
+    }
+    }
+  });
+
+scissorsButton.addEventListener("click", () => {
+  computerSelection = getComputerChoice();
+  let humanSelection = "scissors";
+  
+  if (humanScore < 5 && computerScore < 5) {
+        playRound(humanSelection, computerSelection);
+    
+  } else {
+    optionButton.style.display = 'none';
+    if (humanScore === 5) {
+      message = "Congratulations You WON";
+      declareWinner(message);
+      restartGame();
+    } else {
+      message = "Sorry You Lost ";
+      declareWinner(message);
+      restartGame();
+    }
+    }
+  });  
+
+
+
+
+//updating scores
+playerScoreUpdate.textContent = `Your Point = ${humanScore}`;
+computerScoreUpdate.textContent = `Computer Point = ${computerScore}`;
+
+function declareWinner(message) {
+  gameOverMessage.textContent = `${message}`;
+  body.appendChild(gameOverMessage);
 }
+
+
+
+
+playGameButton();
+   
+
