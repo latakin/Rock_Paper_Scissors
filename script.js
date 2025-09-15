@@ -70,6 +70,18 @@ function playRound(humanSelection, computerSelection) {
     playerScoreUpdate.textContent = `Your Point = ${humanScore}`;
     computerScoreUpdate.textContent = `Computer Point = ${computerScore}`;
   }
+
+  if (humanScore === 5) {
+        optionButton.style.display = 'none';
+      message = "Congratulations You WON";
+      declareWinner(message);
+      restartGame();
+    } else if(computerScore === 5) {
+        optionButton.style.display = 'none';
+      message = "Sorry You Lost ";
+      declareWinner(message);
+      restartGame();
+    }
 }
 
 
@@ -77,64 +89,23 @@ function playRound(humanSelection, computerSelection) {
 rockButton.addEventListener("click", () => {
   computerSelection = getComputerChoice();
   let humanSelection = "rock";
-  
-  if (humanScore < 5 && computerScore < 5) {
-        playRound(humanSelection, computerSelection);
+
+  playRound(humanSelection, computerSelection);
     
-  } else {
-    optionButton.style.display = 'none';
-    if (humanScore === 5) {
-      message = "Congratulations You WON";
-      declareWinner(message);
-      restartGame();
-    } else {
-      message = "Sorry You Lost ";
-      declareWinner(message);
-      restartGame();
-    }
-    }
-  });
+});
 
 paperButton.addEventListener("click", () => {
   computerSelection = getComputerChoice();
   let humanSelection = "paper";
-  
-  if (humanScore < 5 && computerScore < 5) {
-        playRound(humanSelection, computerSelection);
-    
-  } else {
-    optionButton.style.display = 'none';
-    if (humanScore === 5) {
-      message = "Congratulations You WON";
-      declareWinner(message);
-      restartGame();
-    } else {
-      message = "Sorry You Lost ";
-      declareWinner(message);
-      restartGame();
-    }
-    }
+  playRound(humanSelection, computerSelection);
   });
 
 scissorsButton.addEventListener("click", () => {
   computerSelection = getComputerChoice();
   let humanSelection = "scissors";
-  
-  if (humanScore < 5 && computerScore < 5) {
-        playRound(humanSelection, computerSelection);
+  playRound(humanSelection, computerSelection);
     
-  } else {
-    optionButton.style.display = 'none';
-    if (humanScore === 5) {
-      message = "Congratulations You WON";
-      declareWinner(message);
-      restartGame();
-    } else {
-      message = "Sorry You Lost ";
-      declareWinner(message);
-      restartGame();
-    }
-    }
+  
   });  
 
 
